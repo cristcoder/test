@@ -1,6 +1,6 @@
-Feature: test
+Feature: Day time informer
 
-  Scenario: test
+  Scenario: Between zero and six
     Given testGiven
     When testWhen
     Then testThen
