@@ -1,0 +1,9 @@
+shouldReturnNightBetweenZeroAndSix(): Debe pasar si la hora ingresada se encuentra entre las 0:00 y las 6:00
+
+shouldReturnMorningBetweenSixAndTwelve(): Debe pasar si la hora ingresada se encuentra entre las 6:00 y las 12:00
+
+shouldReturnAfternoonBetweenTwelveAndEighteen(): Debe pasar si la hora ingresada se encuentra entre las 12:00 y las 18:00
+
+shouldReturnNightHigherEighteen(): Debe pasar si la hora ingresada es mayor a 18:00
+
+shouldReturnInvalidHourOutOfHourFormat(): Debe pasar si la hora ingresada no se encuentra en el formato de 24 horas

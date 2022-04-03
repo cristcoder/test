@@ -7,3 +7,9 @@ shouldReturnAfternoonBetweenTwelveAndEighteen(): Debe pasar si la hora ingresada
 shouldReturnNightHigherEighteen(): Debe pasar si la hora ingresada es mayor a 18:00
 
 shouldReturnInvalidHourOutOfHourFormat(): Debe pasar si la hora ingresada no se encuentra en el formato de 24 horas
+
+Selenium tests:
+
+checkbox: Al clickear un checkbox desmarcado debe de pasar a estar marcado y viceversa.
+
+Notification message: Al clickear el enlace "clic here" debe de aparecer un mensaje de notificacion.

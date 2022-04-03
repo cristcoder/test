@@ -1,6 +1,11 @@
 Feature: Day time informer
 
-  Scenario: Between zero and six
-    Given testGiven
-    When testWhen
-    Then testThen
+  Scenario: Checkboxes
+    Given checkboxes test
+    When checkboxes click
+    Then checkboxes validate
+
+  Scenario: Notification messages
+    Given notification messages test
+    When click here is clicked
+    Then search notification message

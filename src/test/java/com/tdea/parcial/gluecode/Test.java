@@ -1,10 +1,15 @@
 package com.tdea.parcial.gluecode;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Test {
 
@@ -12,27 +17,58 @@ public class Test {
 
     void setUp() {
 
-        System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver.exe");
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.edge.driver", "./src/test/resources/edge/msedgedriver.exe");
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.google.com/");
 
     }
 
-    @Given("testGiven")
-    public void test_given() {
+    @Given("checkboxes test")
+    public void checkbox_given() {
         setUp();
+        driver.get("https://the-internet.herokuapp.com/checkboxes");
     }
 
-    @When("testWhen")
-    public void test_when() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("checkboxes click")
+    public void chechbox_when() {
+        WebElement check1 = driver.findElements(By.tagName("input")).get(0);
+        WebElement check2 = driver.findElements(By.tagName("input")).get(1);
+        check1.click();
+        check2.click();
+
     }
 
-    @Then("testThen")
-    public void test_then() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("checkboxes validate")
+    public void checkbox_then() {
+        WebElement check1 = driver.findElements(By.tagName("input")).get(0);
+        WebElement check2 = driver.findElements(By.tagName("input")).get(1);
+        assertTrue(check1.isSelected());
+        assertFalse(check2.isSelected());
     }
+
+    @Given("notification messages test")
+    public void notification_given() {
+        setUp();
+        driver.get("https://the-internet.herokuapp.com/notification_message_rendered");
+    }
+
+    @When("click here is clicked")
+    public void notification_when() {
+        WebElement link = driver.findElements(By.tagName("a")).get(1);
+        link.click();
+
+    }
+
+    @Then("search notification message")
+    public void notification_then() {
+        WebElement message = driver.findElement(By.id("flash"));
+        assertEquals("flash notice", message.getAttribute("class"));
+        driver.quit();
+    }
+
+    @After
+    public void end(){
+        driver.quit();
+    }
+
 }
